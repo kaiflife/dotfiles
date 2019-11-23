@@ -1,1 +1,2 @@
-colorscheme ron
+colorscheme desert
+
