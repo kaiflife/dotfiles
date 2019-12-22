@@ -1,6 +1,56 @@
+""" Plugins
+call plug#begin('~/.local/share/nvim/plugged')
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-sensible'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'joshdick/onedark.vim'
+call plug#end()
+
+""" Mappings
+let mapleader=","
+
+""" Tabs Mappings
+map <leader>t <Esc>:tabnew<CR>
+map <leader>f <Esc>:GFiles<CR>
+map <leader>F <Esc>:Files<CR>
+map <leader>c <Esc>:Commentary<CR>
+
+map <leader>w <Esc>:tabclose<CR>
+map <leader>W <Esc>:tabclose!<CR>
+map <leader>1 <Esc>1gt<CR>
+map <leader>2 <Esc>2gt<CR>
+map <leader>3 <Esc>3gt<CR>
+map <leader>4 <Esc>4gt<CR>
+map <leader>5 <Esc>5gt<CR>
+map <leader>6 <Esc>6gt<CR>
+map <leader>7 <Esc>7gt<CR>
+map <leader>8 <Esc>8gt<CR>
+map <leader>9 <Esc>9gt<CR>
+
+""" FZF
+
+""" Hide statusline
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+
 """ Common
 syntax on
-colorscheme desert
+colorscheme onedark
 set encoding=UTF-8
 set mouse=a
 set termguicolors
@@ -32,7 +82,4 @@ if exists('&colorcolumn')
   set colorcolumn=80
 endif
 
-""" Plugins
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'tpope/vim-sensible'
-call plug#end()
+
