@@ -11,23 +11,29 @@ call plug#end()
 """ Mappings
 let mapleader=","
 
+""" Comments Mappings
+map <leader>c <Esc>:Commentary<CR>
+vmap <leader>c gc
+
+""" Dublicate line mapping
+nmap <C-d> mzyyp`z
+
 """ Tabs Mappings
 map <leader>t <Esc>:tabnew<CR>
 map <leader>f <Esc>:GFiles<CR>
 map <leader>F <Esc>:Files<CR>
-map <leader>c <Esc>:Commentary<CR>
 
 map <leader>w <Esc>:tabclose<CR>
 map <leader>W <Esc>:tabclose!<CR>
-map <leader>1 <Esc>1gt<CR>
-map <leader>2 <Esc>2gt<CR>
-map <leader>3 <Esc>3gt<CR>
-map <leader>4 <Esc>4gt<CR>
-map <leader>5 <Esc>5gt<CR>
-map <leader>6 <Esc>6gt<CR>
-map <leader>7 <Esc>7gt<CR>
-map <leader>8 <Esc>8gt<CR>
-map <leader>9 <Esc>9gt<CR>
+map <leader>1 <Esc>1gt
+map <leader>2 <Esc>2gt
+map <leader>3 <Esc>3gt
+map <leader>4 <Esc>4gt
+map <leader>5 <Esc>5gt
+map <leader>6 <Esc>6gt
+map <leader>7 <Esc>7gt
+map <leader>8 <Esc>8gt
+map <leader>9 <Esc>9gt
 
 """ FZF
 
