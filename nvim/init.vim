@@ -20,8 +20,10 @@ nmap <C-d> mzyyp`z
 
 """ Tabs Mappings
 map <leader>t <Esc>:tabnew<CR>
-map <leader>f <Esc>:GFiles<CR>
+map <leader>f <Esc>:GitFiles<CR>
 map <leader>F <Esc>:Files<CR>
+map <leader>L <Esc>:Rg<CR>
+map <leader>l <Esc>:BLines<CR>
 
 map <leader>w <Esc>:tabclose<CR>
 map <leader>W <Esc>:tabclose!<CR>
@@ -41,6 +43,14 @@ map <leader>9 <Esc>9gt
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4.. -e'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
+
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
