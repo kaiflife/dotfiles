@@ -7,13 +7,20 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'joshdick/onedark.vim'
+  Plug 'dense-analysis/ale'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'neoclide/coc.nvim'
 call plug#end()
 
 """Now, when you hit Ctrl + p you should be able to perform a fuzzy file search.
 """can be opened in a horizontal split by pressing ctrl + x or in a vertical split by pressing ctrl + v
 
+"""Prettier use command :Prettier
+
 """ Mappings
 let mapleader=","
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
 let g:NERDTreeIndicatorMapCustom = {
@@ -29,6 +36,9 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ 
 }
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 """ Comments Mappings
 map <leader>c <Esc>:Commentary<CR>
