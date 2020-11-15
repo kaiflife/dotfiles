@@ -2,14 +2,33 @@
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-sensible'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
+  Plug 'preservim/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'joshdick/onedark.vim'
 call plug#end()
 
+"""Now, when you hit Ctrl + p you should be able to perform a fuzzy file search.
+"""can be opened in a horizontal split by pressing ctrl + x or in a vertical split by pressing ctrl + v
+
 """ Mappings
 let mapleader=","
+let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ 
+}
 
 """ Comments Mappings
 map <leader>c <Esc>:Commentary<CR>
@@ -17,13 +36,10 @@ vmap <leader>c gc
 
 """ Dublicate line mapping
 nmap <C-d> mzyyp`z
+nnoremap <MiddleMouse> :tabclose<CR> 
 
 """ Tabs Mappings
 map <leader>t <Esc>:tabnew<CR>
-map <leader>f <Esc>:GitFiles<CR>
-map <leader>F <Esc>:Files<CR>
-map <leader>L <Esc>:Rg<CR>
-map <leader>l <Esc>:BLines<CR>
 
 map <leader>w <Esc>:tabclose<CR>
 map <leader>W <Esc>:tabclose!<CR>
@@ -40,29 +56,9 @@ map <leader>9 <Esc>9gt
 """ FZF
 
 """ Hide statusline
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4.. -e'}, 'right:50%:hidden', '?'),
-  \   <bang>0)
-
-" [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
-
-" [[B]Commits] Customize the options used by 'git log':
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-
-" [Tags] Command to generate tags file
-let g:fzf_tags_command = 'ctags -R'
-
-" [Commands] --expect expression for directly executing the command
-let g:fzf_commands_expect = 'alt-enter,ctrl-x'
-
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd BufWinEnter * NERDTreeMirror
 
 """ Common
 syntax on
@@ -97,5 +93,4 @@ set number relativenumber
 if exists('&colorcolumn')
   set colorcolumn=80
 endif
-
 
