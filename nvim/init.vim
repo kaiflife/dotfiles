@@ -1,3 +1,5 @@
+""" Use :PlugInstall - to install new plugins, :PlugUpdate to update all plugins
+
 """ Plugins
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-commentary'
