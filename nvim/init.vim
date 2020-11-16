@@ -5,6 +5,8 @@
 """cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 """set zsh default chsh -s /bin/zsh
 
+""" install RG sudo apt-get install ripgrep
+
 """ Plugins
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-commentary'
