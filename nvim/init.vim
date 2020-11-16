@@ -3,6 +3,7 @@
 """sudo apt install powerline fonts-powerline
 """git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 """cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+"""set zsh default chsh -s /bin/zsh
 
 """ Use :PlugInstall - to install new plugins, :PlugUpdate to update all plugins
 
