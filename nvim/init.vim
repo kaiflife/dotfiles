@@ -13,16 +13,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'joshdick/onedark.vim'
   Plug 'dense-analysis/ale'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'neoclide/coc.nvim'
 call plug#end()
-
-"""Now, when you hit Ctrl + p you should be able to perform a fuzzy file search.
-"""can be opened in a horizontal split by pressing ctrl + x or in a vertical split by pressing ctrl + v
 
 """Prettier use command :Prettier
 
