@@ -13,7 +13,8 @@
 
 """ to open images use m+o (open image using system image viewer)
 
-""" Plugins
+
+""" nvim Plugins. Use :PlugInstall for install
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-sensible'
