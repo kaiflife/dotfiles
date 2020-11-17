@@ -8,7 +8,8 @@
 """ install RG sudo apt-get install ripgrep
 
 """ autoimports for javascript :CocInstall coc-tsserver
-""" when coc give you a result just press ctrl+y
+""" ctrl+n to autocomplete
+""" when coc give you a result just press ctrl+y for import module
 
 """ to open images use m+o (open image using system image viewer)
 
