@@ -8,6 +8,7 @@
 """ install RG sudo apt-get install ripgrep
 
 """ autoimports for javascript :CocInstall coc-tsserver
+""" when coc give you a result just press ctrl+y
 
 """ to open images use m+o (open image using system image viewer)
 
