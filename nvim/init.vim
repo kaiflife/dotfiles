@@ -49,11 +49,16 @@ map <leader>F <Esc>:Files<CR>
 map <leader>L <Esc>:Rg<CR>
 map <leader>l <Esc>:BLines<CR>
 map <space> vaw
+
+"shift + #, shift + * fast search in file
+
 "If you want to chain commands from the vimrc file, then you need to use <bar> instead of | like this:
 "<CR> - Enter
-nnoremap <silent><leader>o <ESC> :tabnew <bar> :FZF -q <C-R>=expand("<cword>")<CR><CR><Enter>
+"ctrl + t open in new tab
+nnoremap <silent><leader>o :FZF -q <C-R>=expand("<cword>")<CR><CR> 
+
 """ Comments Mappings
-map <leader>c <Esc>:Commentary<CR>
+map <leader>c <ESC> :Commentary<CR>
 vmap <leader>c gc
 """ Dublicate line mapping
 nmap <C-d> mzyyp`z
@@ -92,6 +97,7 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd BufWinEnter * NERDTreeMirror
+
 """ Common
 syntax on
 syntax enable
@@ -122,3 +128,4 @@ set omnifunc=ale#completion#OmniFunc
 if exists('&colorcolumn')
   set colorcolumn=80
 endif
+hi Search guibg=guibg guifg=guifg gui=italic,underline,bold
