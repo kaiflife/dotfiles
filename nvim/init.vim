@@ -24,7 +24,7 @@ call plug#end()
 """Prettier use command :Prettier
 """ Mappings
 let g:ale_completion_autoimport = 1
-let mapleader=","
+let mapleader=" "
 let g:ale_fixers['javascript'] = ['eslint']
 let g:ale_sign_error = '?'
 let g:ale_sign_warning = '??'
