@@ -1,18 +1,7 @@
 """SETUP ZSH
-"""sudo apt install zsh
-"""sudo apt install powerline fonts-powerline
-"""git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-"""cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-"""set zsh default chsh -s /bin/zsh
-
-""" install RG sudo apt-get install ripgrep
-
-""" autoimports for javascript :CocInstall coc-tsserver
-""" ctrl+n to autocomplete
-""" when coc give you a result just press ctrl+y for import module
-
-""" to open images use m+o (open image using system image viewer)
-
+"""Copy script below
+"sudo apt-get install ripgrep && sudo apt install zsh && sudo apt install powerline fonts-powerline && git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc && set zsh default chsh -s /bin/zsh
+"change .zshrc like this https://github.com/kaiflife/dotfiles/blob/master/myzsh/.zshrc
 
 """ nvim Plugins. Use :PlugInstall for install
 call plug#begin('~/.local/share/nvim/plugged')
@@ -30,6 +19,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'jshint/jshint'
 call plug#end()
 
+""" autoimports for javascript :CocInstall coc-tsserver
+""" ctrl+n to autocomplete
+""" when coc give you a result just press ctrl+y for import module
+
+""" to open images use m+o (open image using system image viewer)
+
 """Prettier use command :Prettier
 
 """ Mappings
@@ -40,10 +35,6 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_completion_enabled = 1
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
-
-let g:syntastic_mode_map = { 'mode': 'active',
-                            \ 'active_filetypes': ['python', 'javascript'],
-                            \ 'passive_filetypes': [] }
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
