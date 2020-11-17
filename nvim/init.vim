@@ -7,6 +7,8 @@
 
 """ install RG sudo apt-get install ripgrep
 
+""" to open images use m+o (open image using system image viewer)
+
 """ Plugins
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-commentary'
