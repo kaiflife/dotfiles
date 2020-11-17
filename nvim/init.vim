@@ -52,6 +52,9 @@ map <space> vaw
 
 "shift + #, shift + * fast search in file
 
+"for tsserver npm install -g neovim
+":UpdateRemotePlugins
+
 "If you want to chain commands from the vimrc file, then you need to use <bar> instead of | like this:
 "<CR> - Enter
 "ctrl + t open in new tab
