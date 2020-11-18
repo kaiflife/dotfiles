@@ -1,10 +1,13 @@
 """SETUP NVIM UBUNTU
 
 """INSTALL NVIM
-"sudo apt install neovim
+"cd ~ && sudo apt-get update && sudo apt install neovim
+
+"""INSTALL XCLIP
+"sudo apt install xclip
 
 """INSTALL NODEJS
-"sudo apt install nodejs
+"sudo apt install nodejs && sudo apt install npm && sudo apt install yarn && sudo npm install -g neovim
 
 """INSTALL GIT
 "sudo apt install git
@@ -13,7 +16,7 @@
 "sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 """INSTALL AND SETUP ZSH
-"sudo apt-get install ripgrep && sudo apt install zsh && sudo apt install powerline fonts-powerline && git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc && set zsh default chsh -s /bin/zsh
+"sudo apt-get install ripgrep && sudo apt install zsh && sudo apt install powerline fonts-powerline && git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc && set zsh default chsh -s /bin/zsh && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && sudo apt install python2 && sudo python2 get-pip.py && pip install neovim
 "change .zshrc like this https://github.com/kaiflife/dotfiles/blob/master/myzsh/.zshrc
 
 """ nvim Plugins. Use :PlugInstall for install
@@ -72,7 +75,7 @@ map <space> vaw
 
 "If you want to chain commands from the vimrc file, then you need to use <bar> instead of | like this:
 "<CR> - Enter
-nnoremap <silent> <leader>o :wa <bar> <Esc>:FZF -q <C-R>=expand("<cword>")<CR><CR><Enter>
+nnoremap <silent> <leader>o :wa <bar> <Esc>:FZF -q <C-R>=expand("<cword>")<CR><CR>
 nnoremap <silent> <leader>O :wa <bar> <Esc>:Rg <C-R><C-W><CR>
 
 map <leader>r <Esc>:cfdo "%s/<c-r><c-w><cr>/<c-r><c-w><cr>/g update"
