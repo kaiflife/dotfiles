@@ -78,7 +78,52 @@ map <space> vaw
 nnoremap <silent> <leader>o :wa <bar> <Esc>:FZF -q <C-R>=expand("<cword>")<CR><CR>
 nnoremap <silent> <leader>O :wa <bar> <Esc>:Rg <C-R><C-W><CR>
 
-map <leader>r <Esc>:cfdo "%s/<c-r><c-w><cr>/<c-r><c-w><cr>/g update"
+"""SETUP GREP METHOD
+"MACOS brew install ripgrep
+"UBUNTU sudo apt-get install ripgrep
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+    " set grepformat=%f:%l:%c:%m
+endif
+"""RENAME WORD
+map <leader>rw :call SubstituteInFile(expand("<cword>"))<CR>
+function! GetSubstituteCommand(range, term)
+  "g – “Global” option. Perform the replace on every occurrence of a line
+  "gc – Ask for confirmation before making each replacement.
+  return a:range . "s" . input(":s", "/\\<" . a:term . "\\>/" . a:term . "/gc\<C-f>F/F/l")
+endfunction
+
+function! SubstituteInFile(text)
+    execute GetSubstituteCommand("%", a:text)
+endfunction
+"""RENAME WORD
+
+"""MULTIPLY RENAME WORD
+map <leader>mrw :call SubstituteInCodebase(expand("<cword>"))<CR>
+
+function! QuickfixDo(command)
+    let itemCount = len(getqflist())
+    let itemNr = 1
+    while itemNr <= itemCount
+        exe "cc " . itemNr
+        exe a:command
+        let itemNr = itemNr + 1
+    endwhile
+endfunction
+
+function! SubstituteInCodebase(text)
+    let grepCommand = GetGrepCommand(a:text)
+    let substituteCommand = GetSubstituteCommand("", a:text)
+    execute grepCommand
+    call QuickfixDo(substituteCommand . " | update")
+endfunction
+
+function! GetGrepCommand(term)
+  return "grep " . input(":grep ", "-w '" . a:term . "'\<C-f>F'F'l")
+endfunction
+"""MULTIPLY RENAME WORD
+
 """ Comments Mappings
 map <leader>c <Esc>:Commentary<CR>
 vmap <leader>c gc
