@@ -33,6 +33,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'jshint/jshint'
+  Plug 'Valloric/MatchTagAlways'
+  Plug 'SirVer/ultisnips'
+  Plug 'mlaursen/vim-react-snippets'
+  Plug 'jiangmiao/auto-pairs'
 call plug#end()
 """AFTER PLUGINS INSTALLATIONS
 " autoimports for javascript :CocInstall coc-tsserver
@@ -46,37 +50,36 @@ call plug#end()
 """ Mappings
 let g:ale_completion_autoimport = 1
 let mapleader=" "
-let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['eslint']
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_completion_enabled = 1
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ 
-}
+let g:NERDTreeGitStatusIndicatorMapCustom= {
+    \"Modified"  : "✹",
+    \"Staged"    : "✚",
+    \"Untracked" : "✭",
+    \"Renamed"   : "➜",
+    \"Unmerged"  : "═",
+    \"Deleted"   : "",
+    \"Dirty"     : "✗",
+    \"Clean"     : "✔︎",
+    \'Ignored'   : '☒',
+    \"Unknown"   : "?",
+    \}
 
 """FZF
 map <leader>f :wa <bar> <Esc>:GitFiles<CR>
 map <leader>F :wa <bar> <Esc>:Files<CR>
 map <leader>L :wa <bar> <Esc>:Rg<CR>
 map <leader>l :wa <bar> <Esc>:BLines<CR>
-map <space> vaw
 
 "If you want to chain commands from the vimrc file, then you need to use <bar> instead of | like this:
 "<CR> - Enter
 nnoremap <silent> <leader>o :wa <bar> <Esc>:FZF -q <C-R>=expand("<cword>")<CR><CR>
-nnoremap <silent> <leader>O :wa <bar> <Esc>:Rg <C-R><C-W><CR>
+nnoremap <silent> <leader>O :wa <bar> <Esc>:Rg <C-R>=expand("<cword>")<CR><CR>
 
 """SETUP GREP METHOD
 "MACOS brew install ripgrep
@@ -180,6 +183,28 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd BufWinEnter * NERDTreeMirror
+
+""" AutoClose
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*jsx,*js'
+let g:closetag_emptyTags_caseSensitive = 1
+
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+let g:jsx_ext_required=0
+
+"""Hightlight pair tag
+nnoremap <leader>% :MtaJumpToOtherTag<cr>
+let g:mta_use_matchparen_group = 1
+let g:mta_filetypes = {
+    \'javascriptreact': 1,
+    \'javascript': 1,
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+\}
+highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=lightgreen
+hi link jsxCloseString htmlTag
 
 """ Common
 syntax on
