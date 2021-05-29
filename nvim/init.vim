@@ -1,3 +1,10 @@
+"""USEFULL COMMANDS
+"SHIFT+3 --- select word under the cursor and search it
+"/ --- type to search word
+"SHIFT+% --- jump between braces
+"U --- undo all, u --- undo 1 step
+"CTRL+R --- redo ALL, CTRL+r --- redo 1 step
+
 """SETUP NVIM UBUNTU
 
 """INSTALL NVIM
