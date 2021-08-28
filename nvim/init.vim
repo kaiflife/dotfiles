@@ -4,6 +4,8 @@
 "SHIFT+% --- jump between braces
 "U --- undo all, u --- undo 1 step
 "CTRL+R --- redo ALL, CTRL+r --- redo 1 step
+Press Ctrl-O to jump back to the previous (older) location.
+Press Ctrl-I (same as Tab) to jump forward to the next (newer) location.
 
 """SETUP NVIM UBUNTU
 
