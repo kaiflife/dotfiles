@@ -18,6 +18,9 @@
 """INSTALL NODEJS
 "sudo apt install nodejs && sudo apt install npm && sudo apt install yarn && sudo npm install -g neovim
 
+"""INSTALL YARN
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+
 """INSTALL GIT
 "sudo apt install git
 
