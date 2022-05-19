@@ -15,8 +15,11 @@
 """INSTALL XCLIP
 "sudo apt install xclip
 
+"""UPLOAD NODEJS
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
 """INSTALL NODEJS
-"sudo apt install nodejs && sudo apt install npm && sudo apt install yarn && sudo npm install -g neovim
+"sudo nvm install --lts && sudo nvm use --lts && sudo npm install -g neovim
 
 """INSTALL YARN
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
