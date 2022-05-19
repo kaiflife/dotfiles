@@ -42,7 +42,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'joshdick/onedark.vim'
   Plug 'dense-analysis/ale'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'jshint/jshint'
