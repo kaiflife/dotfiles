@@ -38,8 +38,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'joshdick/onedark.vim'
   Plug 'dense-analysis/ale'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-  Plug 'neoclide/coc.nvim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'prettier/vim-prettier', { 'do': 'npm install' }
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'jshint/jshint'
